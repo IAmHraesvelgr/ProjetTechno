@@ -1,5 +1,9 @@
 # Projet Spécialité Techno
 
+Bibliothèques Utilisées : 
+
+- Termcolor (https://pypi.org/project/termcolor/)
+
 Outils Utilisés :
 
 - Python (https://python.org)
