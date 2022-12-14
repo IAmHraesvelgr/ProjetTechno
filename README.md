@@ -1,4 +1,4 @@
-# Projet Spécialité Techno
+# Projet Spécialité Numérique et Sciences Informatiques
 
 Bibliothèques Utilisées : 
 
