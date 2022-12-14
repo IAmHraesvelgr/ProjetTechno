@@ -1,6 +1,10 @@
 from termcolor import colored
+import os
 
 def main():
+    
+    os.system("mode con cols=85 lines=30")
+
     print(colored("""                                                                  
                                                         ████░░░░░░████      
                                                     ██░░░░░░░░░░██████    
