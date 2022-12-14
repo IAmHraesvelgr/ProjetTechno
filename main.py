@@ -68,8 +68,7 @@ def ROT13(message):
     return messageChiffre
 
 def CodeCesar(message):
-    messageChiffre = codecs.encode(message, "cesar")
-    return messageChiffre
+    pass
 
 def CodeVigenère(message):
     pass

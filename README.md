@@ -4,7 +4,7 @@ Bibliothèques Utilisées :
 
 - Termcolor (https://pypi.org/project/termcolor/)
 - OS
-- Codecs ()
+- Codecs
 
 Outils Utilisés :
 
