@@ -1,6 +1,7 @@
 # imports
 from termcolor import colored
 import os
+import codecs
 
 # Fonction Main
 def main():
@@ -32,30 +33,34 @@ def main():
 
     if chiffrement == "1":
         
-        ROT13(message)
+        print(ROT13(message))
         message = ""
     
     if chiffrement == "2":
         
         CodeCesar(message)
         message = ""
+        main()
     
     if chiffrement == "3":
         
         CodeVigenère(message)
         message = ""
+        main()
     
     if chiffrement == "4":
         
         CarreDePolybe(message)
         message = ""
+        main()
     
     if chiffrement == "99":
         message = ""
         main()
 
 def ROT13(message):
-    pass
+    messageChiffre = codecs.encode(message, 'rot_13')
+    return messageChiffre
 
 def CodeCesar(message):
     pass
