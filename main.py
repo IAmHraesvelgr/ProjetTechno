@@ -27,6 +27,44 @@ def main():
     while message == "":
         print(colored("ERREUR : Veuillez renseigner un message à chiffrer.", 'red'))
         message = input("\nVeuillez entrez le message à chiffrer: \n")
+    
+    chiffrement = input("\nVeuillez choisir une option de chiffrement: \n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n\n")
+
+    if chiffrement == "1":
+        
+        ROT13(message)
+        message = ""
+    
+    if chiffrement == "2":
+        
+        CodeCesar(message)
+        message = ""
+    
+    if chiffrement == "3":
+        
+        CodeVigenère(message)
+        message = ""
+    
+    if chiffrement == "4":
+        
+        CarreDePolybe(message)
+        message = ""
+    
+    if chiffrement == "99":
+        message = ""
+        main()
+
+def ROT13(message):
+    pass
+
+def CodeCesar(message):
+    pass
+
+def CodeVigenère(message):
+    pass
+
+def CarreDePolybe(message):
+    pass
 
 # Lancement du Programme
 if __name__ == '__main__':
