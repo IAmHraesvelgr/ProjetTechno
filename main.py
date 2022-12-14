@@ -29,41 +29,47 @@ def main():
         print(colored("ERREUR : Veuillez renseigner un message à chiffrer.", 'red'))
         message = input("\nVeuillez entrez le message à chiffrer: \n")
     
-    chiffrement = input("\nVeuillez choisir une option de chiffrement: \n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n\n")
+    chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n\n")
 
     if chiffrement == "1":
         
-        print(ROT13(message))
+        print("\n" + ROT13(message))
         message = ""
+        menuPrincipal = input("\n99) Menu Principal\n")
+        while True:
+            if menuPrincipal == "99":
+                main()
+            
     
     if chiffrement == "2":
         
-        CodeCesar(message)
+        print("\n" + CodeCesar(message))
         message = ""
-        main()
+        menuPrincipal = input("\n99) Menu Principal\n")
+        while True:
+            if menuPrincipal == "99":
+                main()
     
     if chiffrement == "3":
         
         CodeVigenère(message)
         message = ""
-        main()
     
     if chiffrement == "4":
         
         CarreDePolybe(message)
         message = ""
-        main()
     
     if chiffrement == "99":
         message = ""
-        main()
 
 def ROT13(message):
     messageChiffre = codecs.encode(message, 'rot_13')
     return messageChiffre
 
 def CodeCesar(message):
-    pass
+    messageChiffre = codecs.encode(message, "cesar")
+    return messageChiffre
 
 def CodeVigenère(message):
     pass
