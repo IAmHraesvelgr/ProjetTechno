@@ -5,6 +5,7 @@ Bibliothèques Utilisées :
 - Termcolor (https://pypi.org/project/termcolor/)
 - OS
 - Codecs
+- Console (https://pypi.org/project/console/)
 
 Outils Utilisés :
 
