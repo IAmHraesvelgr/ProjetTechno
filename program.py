@@ -20,7 +20,7 @@ class Program():
                                                         ██░░░░██      ██░░███  
         ████████████████████████████████████████████████░░░░██          ██░░░░██
         ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██          ██░░░░██
-        ██░░░░██░░░░██░░░░████████████████████████████░░░░██          ██░░░░██
+          ██░░░░██░░░░██░░░░████████████████████████████░░░░██          ██░░░░██
             ████  ████  ████                            ██░░░░██      ██░░░░██  
                                                         ██░░░░██████████░░░░██  
                                                         ██░░░░░░░░░░░░░░██    
@@ -42,8 +42,13 @@ class Program():
         messageChiffre = codecs.encode(messageAChiffrer, 'rot_13')
         return messageChiffre
 
-    def CodeCesar(messageAChiffrer):
-        pass
+    def CodeCesar(messageAChiffrer, s):
+        s = int(s)
+        resultat = ""
+        for i in range(len(messageAChiffrer)):
+            char = messageAChiffrer[i]
+            resultat += chr((ord(char) + s - 96) % 26 + 96)
+        return resultat
 
     def CodeVigenère(messageAChiffrer):
         pass
@@ -78,20 +83,27 @@ class Program():
                 
         
         if chiffrement == "2":
-            
-            print("\n" + Program.CodeCesar(messageAChiffrer))
+
+            decalage = input("Veuillez saisir une clé de chiffrement :\n")
+            while decalage == "" or not decalage.isdigit() or not decalage.isdecimal():
+                print(colored("ERREUR : La clé de chiffrement doit être un nombre entier.\n", "red"))
+                decalage = input("Veuillez saisir une clé de chiffrement :\n")
+            print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeCesar(messageAChiffrer, decalage), "green"))
             menuPrincipal = input("\n99) Menu Principal\n")
             chiffrement = ""
             while True:
                 if menuPrincipal == "99":
-
+                    
                     # Nettoyage de la fenêtre
                     try:
                         os.system("cls")
                     except:
                         os.system("clear")
-
-                    Program.run()
+                    
+                    Program.run(Program)
+                else:
+                    print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeCesar(messageAChiffrer,  decalage), "green"))
+                    menuPrincipal = input("\n99) Menu Principal\n")
         
         if chiffrement == "3":
             
