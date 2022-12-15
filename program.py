@@ -36,21 +36,38 @@ class Program():
 
 
     def ROT13(messageAChiffrer):
+        
         messageChiffre = codecs.encode(messageAChiffrer, 'rot_13')
         return messageChiffre
 
     def CodeCesar(messageAChiffrer, decalage):
+        
         decalage = int(decalage)
-        resultat = ""
+        messageChiffre = ""
         for i in range(len(messageAChiffrer)):
             char = messageAChiffrer[i]
-            resultat += chr((ord(char) + decalage - 96) % 26 + 96)
-        return resultat
+            messageChiffre += chr((ord(char) + decalage - 96) % 26 + 96)
+        return messageChiffre
 
-    def CodeVigenère(messageAChiffrer):
-        pass
+    def CodeVigenère(messageAChiffrer, cle):
+        
+        indice_cle = 0
+        messageChiffre = ""
+
+        for i in range(len(messageAChiffrer)):
+            
+            if 'A' <= messageAChiffrer[i] <= 'Z':
+                messageChiffre += chr((((ord(messageAChiffrer[i]) - ord('A')) + (ord(cle[indice_cle]) - ord('A'))) % 26) + ord('A'))
+                indice_cle =  (indice_cle + 1) % len(cle)
+            
+            else:
+
+                messageChiffre += messageAChiffrer[i]
+        
+        return messageChiffre
 
     def CarreDePolybe(messageAChiffrer):
+        
         pass
 
     # Fonction de choix du chiffrement
@@ -109,8 +126,30 @@ class Program():
         
         if chiffrement == "3":
             
-            Program.CodeVigenère(messageAChiffrer)
+            cle = input("Veuillez saisir une clé de chiffrement :\n\n")
+            
+            while cle == "" or not cle.isalpha() or any(char.isdigit() for char in cle):
+                print(colored("ERREUR : La clé de chiffrement fournie n'est pas valide.\n\n", "red"))
+                cle = input("Veuillez saisir une clé de chiffrement :\n\n")
+            
+            print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeVigenère(messageAChiffrer, cle), "green"))
+            menuPrincipal = input("\n99) Menu Principal\n")
             chiffrement = ""
+            
+            while True:
+                
+                if menuPrincipal == "99":
+                    
+                    # Nettoyage de la fenêtre
+                    try:
+                        os.system("cls")
+                    except:
+                        os.system("clear")
+                    
+                    Program.run(Program)
+                else:
+                    print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeVigenère(messageAChiffrer, cle), "green"))
+                    menuPrincipal = input("\n99) Menu Principal\n")
         
         if chiffrement == "4":
             
