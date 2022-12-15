@@ -29,39 +29,8 @@ def main():
         print(colored("ERREUR : Veuillez renseigner un message à chiffrer.", 'red'))
         message = input("\nVeuillez entrez le message à chiffrer: \n")
     
-    chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n\n")
+    ChosirChriffrement()
 
-    if chiffrement == "1":
-        
-        print("\n" + ROT13(message))
-        message = ""
-        menuPrincipal = input("\n99) Menu Principal\n")
-        while True:
-            if menuPrincipal == "99":
-                main()
-            
-    
-    if chiffrement == "2":
-        
-        print("\n" + CodeCesar(message))
-        message = ""
-        menuPrincipal = input("\n99) Menu Principal\n")
-        while True:
-            if menuPrincipal == "99":
-                main()
-    
-    if chiffrement == "3":
-        
-        CodeVigenère(message)
-        message = ""
-    
-    if chiffrement == "4":
-        
-        CarreDePolybe(message)
-        message = ""
-    
-    if chiffrement == "99":
-        message = ""
 
 def ROT13(message):
     messageChiffre = codecs.encode(message, 'rot_13')
@@ -75,6 +44,54 @@ def CodeVigenère(message):
 
 def CarreDePolybe(message):
     pass
+
+def ChosirChriffrement():
+    
+    global chiffrement
+    chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n\n")
+
+    if chiffrement == "1":
+        
+        print("\n" + ROT13(message))
+        message = ""
+        menuPrincipal = input("\n99) Menu Principal\n")
+        chiffrement = ""
+        while True:
+            if menuPrincipal == "99":
+                main()
+            
+    
+    if chiffrement == "2":
+        
+        print("\n" + CodeCesar(message))
+        message = ""
+        menuPrincipal = input("\n99) Menu Principal\n")
+        chiffrement = ""
+        while True:
+            if menuPrincipal == "99":
+                main()
+    
+    if chiffrement == "3":
+        
+        CodeVigenère(message)
+        message = ""
+        chiffrement = ""
+    
+    if chiffrement == "4":
+        
+        CarreDePolybe(message)
+        message = ""
+        chiffrement = ""
+    
+    if chiffrement == "99":
+        
+        message = ""
+        chiffrement = ""
+        main()
+    
+    else:
+        print(colored("ERREUR : Option de chiffrement non-renseignée.", "red"))
+        ChosirChriffrement()
 
 # Lancement du Programme
 if __name__ == '__main__':
