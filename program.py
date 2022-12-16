@@ -50,7 +50,7 @@ class Program():
         return messageChiffre
 
     def CodeVigenère(messageAChiffrer, cle):
-
+        
         return messageAChiffrer
 
     def CarreDePolybe(messageAChiffrer):
