@@ -6,6 +6,7 @@ import codecs
 class Program():
 
     def run(self):
+        
         Program.main(self)
 
     def main(self):
@@ -38,15 +39,18 @@ class Program():
     def ROT13(messageAChiffrer):
         
         messageChiffre = codecs.encode(messageAChiffrer, 'rot_13')
+        
         return messageChiffre
 
     def CodeCesar(messageAChiffrer, decalage):
         
         decalage = int(decalage)
         messageChiffre = ""
+        
         for i in range(len(messageAChiffrer)):
             char = messageAChiffrer[i]
             messageChiffre += chr((ord(char) + decalage - 96) % 26 + 96)
+        
         return messageChiffre
 
     def CodeVigenère(messageAChiffrer, cle):
@@ -81,12 +85,15 @@ class Program():
             print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.ROT13(messageAChiffrer), "green"))
             menuPrincipal = input("\n99) Menu Principal\n")
             chiffrement = ""
+            
             while True:
+                
                 if menuPrincipal == "99":
                     
                     # Nettoyage de la fenêtre
                     try:
                         os.system("cls")
+                    
                     except:
                         os.system("clear")
                     
@@ -116,10 +123,12 @@ class Program():
                     # Nettoyage de la fenêtre
                     try:
                         os.system("cls")
+                    
                     except:
                         os.system("clear")
                     
                     Program.run(None)
+                
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeCesar(messageAChiffrer,  cle), "green"))
                     menuPrincipal = input("\n99) Menu Principal\n")
@@ -143,10 +152,12 @@ class Program():
                     # Nettoyage de la fenêtre
                     try:
                         os.system("cls")
+                    
                     except:
                         os.system("clear")
                     
                     Program.run(None)
+                
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeVigenère(messageAChiffrer, cle), "green"))
                     menuPrincipal = input("\n99) Menu Principal\n")
@@ -159,6 +170,7 @@ class Program():
             # Nettoyage de la fenêtre
             try:
                 os.system("cls")
+            
             except:
                 os.system("clear")
                 
@@ -171,6 +183,7 @@ class Program():
             # Nettoyage de la fenêtre
             try:
                 os.system("cls")
+            
             except:
                 os.system("clear")
                 
