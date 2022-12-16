@@ -31,7 +31,7 @@ class Program():
 
         while message == "" or any(char.isdigit() for char in message) or not message.isalpha():
             print(colored("ERREUR : Veuillez renseigner un message à chiffrer uniquement composé de lettres et ne contenant pas d'espaces.", 'red'))
-            message = input("\nVeuillez entrez le message à chiffrer: \n").lower()
+            message = input("\nVeuillez entrez le message à chiffrer: \n\n").lower()
         
         Program.ChosirChriffrement(message)
 
