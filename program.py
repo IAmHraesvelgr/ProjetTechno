@@ -90,7 +90,7 @@ class Program():
                     except:
                         os.system("clear")
                     
-                    Program.run(Program)
+                    Program.run(None)
 
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.ROT13(messageAChiffrer), "green"))
@@ -119,7 +119,7 @@ class Program():
                     except:
                         os.system("clear")
                     
-                    Program.run(Program)
+                    Program.run(None)
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeCesar(messageAChiffrer,  cle), "green"))
                     menuPrincipal = input("\n99) Menu Principal\n")
@@ -146,7 +146,7 @@ class Program():
                     except:
                         os.system("clear")
                     
-                    Program.run(Program)
+                    Program.run(None)
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeVigenère(messageAChiffrer, cle), "green"))
                     menuPrincipal = input("\n99) Menu Principal\n")
@@ -155,6 +155,14 @@ class Program():
             
             Program.CarreDePolybe(messageAChiffrer)
             chiffrement = ""
+
+            # Nettoyage de la fenêtre
+            try:
+                os.system("cls")
+            except:
+                os.system("clear")
+                
+            Program.run(None)
         
         if chiffrement == "99":
             
@@ -166,7 +174,7 @@ class Program():
             except:
                 os.system("clear")
                 
-            Program.run()
+            Program.run(None)
         
         else:
             print(colored("ERREUR : Option de chiffrement non-renseignée.", "red"))

@@ -9,7 +9,7 @@ Bibliothèques Utilisées :
 
 Outils Utilisés :
 
-- Python (https://python.org)
+- Python Version 3.11.1 (https://python.org)
 - GitHub (https://github.com)
-- GitHub Desltop (https://desktop.github.com)
+- GitHub Desktop (https://desktop.github.com)
 - Visual Studio Code (https://code.visualstudio.com)
