@@ -50,8 +50,21 @@ class Program():
         return messageChiffre
 
     def CodeVigenère(messageAChiffrer, cle):
+
+        cle = [ord(letter) - 97 for letter in cle]
         
-        return messageAChiffrer
+        messageAChiffrer = str(messageAChiffrer).lower()
+
+        tailleCle = len(cle)
+        messageChiffre = ''
+
+        for i in range(len(messageAChiffrer)):
+            lettre = messageAChiffrer[i]
+            c = cle[i % tailleCle]
+            messageChiffre = messageChiffre + chr ((ord(lettre) - 97 + c ) % 26 + 97)
+        
+        return messageChiffre
+
 
     def CarreDePolybe(messageAChiffrer):
         
