@@ -50,21 +50,8 @@ class Program():
         return messageChiffre
 
     def CodeVigenère(messageAChiffrer, cle):
-        
-        indice_cle = 0
-        messageChiffre = ""
 
-        for i in range(len(messageAChiffrer)):
-            
-            if 'A' <= messageAChiffrer[i] <= 'Z':
-                messageChiffre += chr((((ord(messageAChiffrer[i]) - ord('A')) + (ord(cle[indice_cle]) - ord('A'))) % 26) + ord('A'))
-                indice_cle =  (indice_cle + 1) % len(cle)
-            
-            else:
-
-                messageChiffre += messageAChiffrer[i]
-        
-        return messageChiffre
+        return messageAChiffrer
 
     def CarreDePolybe(messageAChiffrer):
         
