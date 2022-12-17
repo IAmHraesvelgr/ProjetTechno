@@ -7,7 +7,7 @@ class Program():
 
     def run(self):
         
-        self.main(self)
+        self.main()
 
     def main(self):
 
