@@ -7,7 +7,7 @@ class Program():
 
     def run(self):
         
-        Program.main(self)
+        self.main(self)
 
     def main(self):
 
@@ -33,7 +33,7 @@ class Program():
             print(colored("ERREUR : Veuillez renseigner un message à chiffrer uniquement composé de lettres et ne contenant pas d'espaces.", 'red'))
             message = input("\nVeuillez entrez le message à chiffrer: \n\n").lower()
         
-        Program.ChosirChriffrement(message)
+        self.ChosirChriffrement(self, message)
 
 
     def ROT13(messageAChiffrer):
@@ -75,14 +75,14 @@ class Program():
         pass
 
     # Fonction de choix du chiffrement
-    def ChosirChriffrement(messageAChiffrer):
+    def ChosirChriffrement(self,messageAChiffrer):
         
         global chiffrement
         chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n\n")
 
         if chiffrement == "1":
             
-            print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.ROT13(messageAChiffrer), "green"))
+            print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(self.ROT13(messageAChiffrer), "green"))
             menuPrincipal = input("\n99) Menu Principal\n")
             chiffrement = ""
             
@@ -97,10 +97,10 @@ class Program():
                     except:
                         os.system("clear")
                     
-                    Program.run(None)
+                    self.run(self)
 
                 else:
-                    print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.ROT13(messageAChiffrer), "green"))
+                    print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(self.ROT13(messageAChiffrer), "green"))
                     menuPrincipal = input("\n99) Menu Principal\n")
                 
         
@@ -112,7 +112,7 @@ class Program():
                 print(colored("ERREUR : La clé de chiffrement doit être un nombre entier compris entre 0 et 26.\n\n", "red"))
                 cle = input("Veuillez saisir une clé de chiffrement :\n\n")
             
-            print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeCesar(messageAChiffrer, cle), "green"))
+            print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(self.CodeCesar(messageAChiffrer, cle), "green"))
             menuPrincipal = input("\n99) Menu Principal\n")
             chiffrement = ""
             
@@ -127,10 +127,10 @@ class Program():
                     except:
                         os.system("clear")
                     
-                    Program.run(None)
+                    self.run(self)
                 
                 else:
-                    print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeCesar(messageAChiffrer,  cle), "green"))
+                    print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(self.CodeCesar(messageAChiffrer,  cle), "green"))
                     menuPrincipal = input("\n99) Menu Principal\n")
         
         if chiffrement == "3":
@@ -141,7 +141,7 @@ class Program():
                 print(colored("ERREUR : La clé de chiffrement fournie n'est pas valide.\n\n", "red"))
                 cle = input("Veuillez saisir une clé de chiffrement :\n\n")
             
-            print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeVigenère(messageAChiffrer, cle), "green"))
+            print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(self.CodeVigenère(messageAChiffrer, cle), "green"))
             menuPrincipal = input("\n99) Menu Principal\n")
             chiffrement = ""
             
@@ -156,15 +156,15 @@ class Program():
                     except:
                         os.system("clear")
                     
-                    Program.run(None)
+                    self.run(self)
                 
                 else:
-                    print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(Program.CodeVigenère(messageAChiffrer, cle), "green"))
+                    print("\n", colored("[*]", "blue"), "Le message chiffré est" , colored(self.CodeVigenère(messageAChiffrer, cle), "green"))
                     menuPrincipal = input("\n99) Menu Principal\n")
         
         if chiffrement == "4":
             
-            Program.CarreDePolybe(messageAChiffrer)
+            self.CarreDePolybe(messageAChiffrer)
             chiffrement = ""
 
             # Nettoyage de la fenêtre
@@ -174,7 +174,7 @@ class Program():
             except:
                 os.system("clear")
                 
-            Program.run(None)
+            self.run(self)
         
         if chiffrement == "99":
             
@@ -187,8 +187,8 @@ class Program():
             except:
                 os.system("clear")
                 
-            Program.run(None)
+            self.run(self)
         
         else:
             print(colored("ERREUR : Option de chiffrement non-renseignée.", "red"))
-            Program.ChosirChriffrement(message)
+            self.ChosirChriffrement(message)
