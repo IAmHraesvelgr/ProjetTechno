@@ -4,6 +4,9 @@ import os
 import codecs
 
 class Program():
+    
+    def __init__(self):
+        pass
 
     def run(self):
         
@@ -38,8 +41,12 @@ class Program():
 
     def ROT13(self, messageAChiffrer):
         
-        messageChiffre = codecs.encode(messageAChiffrer, 'rot_13')
+        alphabet = "abcdefghijklmnopqrstuvwxyz"
+        messageChiffre = ""
         
+        for char in messageAChiffrer:
+            messageChiffre += alphabet[(alphabet.find(char) + 13) % 26]
+    
         return messageChiffre
 
     def CodeCesar(self, messageAChiffrer, decalage):
@@ -78,27 +85,24 @@ class Program():
             
             ligne = int((ord(char) - ord('a')) / 5) + 1
             
-            col = col = ((ord(char) - ord('a')) % 5) + 1
+            col = ((ord(char) - ord('a')) % 5) + 1
             
             if char == 'k':
                 
-                ligne -= 1
+                ligne = ligne - 1
                 col = 5 - col + 1
             
             elif ord(char) >= ord('j'):
                 
                 if col == 1:
                     col = 6
-                    ligne -= 1
+                    ligne = ligne - 1
                 
-                col -= 1
-            
-            ligne = str(ligne)
-            col = str(col)
-            
-            messageChiffre += ligne + col
-            
-            return messageChiffre
+                col = col - 1
+                
+            messageChiffre = messageChiffre + str(ligne) + str(col)
+                
+        return messageChiffre
 
     # Fonction de choix du chiffrement
     def ChosirChriffrement(self, messageAChiffrer):
