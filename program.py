@@ -1,7 +1,6 @@
 # imports
 from termcolor import colored
 import os
-import codecs
 
 class Program():
     
