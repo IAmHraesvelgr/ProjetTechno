@@ -1,6 +1,6 @@
 # imports
 from termcolor import colored
-import os
+import os          
 
 # Création de la classe servant de support au programme
 class Chiffrer():
@@ -33,13 +33,9 @@ class Chiffrer():
         """, "yellow"))
 
         global message
-        message = input("Bienvenue dans ce programme de chiffrement et de déchiffrement de messages.\n\nVeuillez entrez le message à chiffrer : ce message doit uniquement être composé de lettres et ne doit pas contenir d'espaces (ne renseignez pas ce champ pour passer au déchiffrement) : \n\n").lower()
+        message = input("Bienvenue dans ce programme de chiffrement de messages.\n\nVeuillez entrez le message à chiffrer : ce message doit uniquement être composé de lettres et ne doit pas contenir d'espaces : \n\n").lower()
 
         while message == any(char.isdigit() for char in message) or not message.isalpha():
-
-            if message == "":
-                print("L'utilisateur veut déchiffrer")
-                os.system("pause")
 
             print(colored("ERREUR : Veuillez renseigner un message à chiffrer uniquement composé de lettres et ne contenant pas d'espaces.", 'red'))
             message = input("\nVeuillez entrez le message à chiffrer: \n\n").lower()
@@ -86,15 +82,14 @@ class Chiffrer():
         
         return messageChiffre
 
-    """Méthode pour chiffrer avec le carré de Polybe (le carré par défaut)
+    # Méthode pour chiffrer avec le carré de Polybe (le carré par défaut)
     
-    A B C D E
-    F G H I,j K
-    L M N O P
-    Q R S T U
-    V W X Y Z
-    
-    """
+    # A B C D E
+    # F G H I,j K
+    # L M N O P
+    # Q R S T U
+    # V W X Y Z
+
     def CarreDePolybe(self, messageAChiffrer):
         
         messageChiffre = ""
@@ -126,7 +121,7 @@ class Chiffrer():
     def ChoisirChiffrement(self, messageAChiffrer):
         
         global chiffrement
-        chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n100) Déchiffrer le message\n\n")
+        chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n100) Informations\n\n")
 
         if chiffrement == "1":
             
@@ -246,6 +241,40 @@ class Chiffrer():
                 
             self.run()
         
+        if chiffrement == "100":
+            
+            chiffrement = ""
+
+            print("\n1) Le chiffrement ROT13 est une méthode de chiffrement dans laquelle chaque lettre à chiffrer est décalée de 13 lettres par rapport à son emplacement initial. Exemple : a = n en ROT13.")
+            print("\n2) Le code de César est une méthode de chiffrement dans laquelle chaque lettre à chiifrer est décalée du nombre de lettres correspondant à la clé par rapport à son emplacement initial. Exemple : a = d pour une clé '3' en code de César.")
+            print("\n3) Le code Vigenère est une méthode de chiffrement dans laquelle chaque lettre à chiffrer est remplacée par différentes lettres en fonction de la clé fournie. Exemple : a = c pour une clé 'cle' en code de Vigenère.")
+            print("\n4) Le carré de Polybe est une méthode de chiffrement dans laquelle chaque lettre de l'alphabet est placée dans un tableau (un cube) de 5 x 5 = 25 cases (par convention, le i et le j sont placés dans la même case à cause du manque de place). Ensuite chaque lettre du message est remplacée par les coordonées de cette lettre dans le carré. Exemple : a = 11 avec le carré de Polybe\n")
+
+            menuPrincipal = input("\n99) Menu Principal\n")
+            chiffrement = ""
+            
+            while True:
+                
+                if menuPrincipal == "99":
+                    
+                    # Nettoyage de la fenêtre
+                    try:
+                        os.system("cls")
+                    
+                    except:
+                        os.system("clear")
+                    
+                    self.run()
+                
+                else:
+                    
+                    print("\n1) Le chiffrement ROT13 est une méthode de chiffrement dans laquelle chaque lettre à chiffrer est décalée de 13 lettres par rapport à son emplacement initial. Exemple : a = n en ROT13.")
+                    print("\n2) Le code de César est une méthode de chiffrement dans laquelle chaque lettre à chiifrer est décalée du nombre de lettres correspondant à la clé par rapport à son emplacement initial. Exemple : a = d pour une clé '3' en code de César.")
+                    print("\n3) Le code Vigenère est une méthode de chiffrement dans laquelle chaque lettre à chiffrer est remplacée par différentes lettres en fonction de la clé fournie. Exemple : a = c pour une clé 'cle' en code de Vigenère.")
+                    print("\n4) Le carré de Polybe est une méthode de chiffrement dans laquelle chaque lettre de l'alphabet est placée dans un tableau (un cube) de 5 x 5 = 25 cases (par convention, le i et le j sont placés dans la même case à cause du manque de place). Ensuite chaque lettre du message est remplacée par les coordonées de cette lettre dans le carré. Exemple : a = 11 avec le carré de Polybe\n")
+                    
+                    menuPrincipal = input("\n99) Menu Principal\n")
+
         else:
             print(colored("ERREUR : Option de chiffrement non-renseignée.", "red"))
             self.ChoisirChiffrement(message)

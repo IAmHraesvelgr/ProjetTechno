@@ -1,5 +1,5 @@
 # imports
-from program import Chiffrer
+from chiffrer import Chiffrer
 from console.utils import set_title
 import os         
 
@@ -9,8 +9,8 @@ set_title("Programme de chiffrement")
 
 
 # Création d'une intance de la classe Programme
-app = Chiffrer()
+chiffrer = Chiffrer()
 
 # Lancement du Programme
 while True:
-    app.run()
+    chiffrer.run()
