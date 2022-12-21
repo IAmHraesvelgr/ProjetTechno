@@ -2,17 +2,21 @@
 from termcolor import colored
 import os
 
-class Program():
+# Création de la classe servant de support au programme
+class Chiffrer():
     
+    # Méthode __init__
     def __init__(self):
         pass
 
+    # Méthode pour lancer le programme
     def run(self):
-        
         self.main()
 
+    # Méthode permettant d'initialiser le programme
     def main(self):
 
+        # Affichage de la clé en ASCII et du menu principal
         print(colored("""                                                                  
                                                             ████░░░░░░████      
                                                         ██░░░░░░░░░░██████    
@@ -29,15 +33,20 @@ class Program():
         """, "yellow"))
 
         global message
-        message = input("Bienvenue dans ce programme de chiffrement de messages.\n\nVeuillez entrez le message à chiffrer (ce message doit uniquement être composé de lettres et ne doit pas contenir d'espaces) : \n\n").lower()
+        message = input("Bienvenue dans ce programme de chiffrement et de déchiffrement de messages.\n\nVeuillez entrez le message à chiffrer : ce message doit uniquement être composé de lettres et ne doit pas contenir d'espaces (ne renseignez pas ce champ pour passer au déchiffrement) : \n\n").lower()
 
-        while message == "" or any(char.isdigit() for char in message) or not message.isalpha():
+        while message == any(char.isdigit() for char in message) or not message.isalpha():
+
+            if message == "":
+                print("L'utilisateur veut déchiffrer")
+                os.system("pause")
+
             print(colored("ERREUR : Veuillez renseigner un message à chiffrer uniquement composé de lettres et ne contenant pas d'espaces.", 'red'))
             message = input("\nVeuillez entrez le message à chiffrer: \n\n").lower()
         
-        self.ChosirChriffrement(message)
+        self.ChoisirChiffrement(message)
 
-
+    # Méthode pour chiffrer en ROT13
     def ROT13(self, messageAChiffrer):
         
         alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -48,6 +57,7 @@ class Program():
     
         return messageChiffre
 
+    # Méthode pour chiffrer en code de César
     def CodeCesar(self, messageAChiffrer, decalage):
         
         decalage = int(decalage)
@@ -59,6 +69,7 @@ class Program():
         
         return messageChiffre
 
+    # Méthode pour chiffrer en code de Vigenère
     def CodeVigenère(self, messageAChiffrer, cle):
 
         cle = [ord(letter) - 97 for letter in cle]
@@ -75,7 +86,15 @@ class Program():
         
         return messageChiffre
 
-
+    """Méthode pour chiffrer avec le carré de Polybe (le carré par défaut)
+    
+    A B C D E
+    F G H I,j K
+    L M N O P
+    Q R S T U
+    V W X Y Z
+    
+    """
     def CarreDePolybe(self, messageAChiffrer):
         
         messageChiffre = ""
@@ -104,10 +123,10 @@ class Program():
         return messageChiffre
 
     # Fonction de choix du chiffrement
-    def ChosirChriffrement(self, messageAChiffrer):
+    def ChoisirChiffrement(self, messageAChiffrer):
         
         global chiffrement
-        chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n\n")
+        chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n100) Déchiffrer le message\n\n")
 
         if chiffrement == "1":
             
@@ -229,4 +248,4 @@ class Program():
         
         else:
             print(colored("ERREUR : Option de chiffrement non-renseignée.", "red"))
-            self.ChosirChriffrement(message)
+            self.ChoisirChiffrement(message)

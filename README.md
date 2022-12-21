@@ -1,5 +1,11 @@
 # Projet Spécialité Numérique et Sciences Informatiques
 
+Ressources Utilisées :
+
+- DCode (https://dcode.fr)
+- Stack Overflow (https://stackoverflow.com)
+- YouTube (https://youtube.com)
+
 Bibliothèques Utilisées : 
 
 - Termcolor (https://pypi.org/project/termcolor/)
