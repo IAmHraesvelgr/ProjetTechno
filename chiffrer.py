@@ -252,7 +252,26 @@ class Chiffrer():
             print("\n4) Le carré de Polybe est une méthode de chiffrement dans laquelle chaque lettre de l'alphabet est placée dans un tableau (un cube) de 5 x 5 = 25 cases (par convention, le i et le j sont placés dans la même case à cause du manque de place). Ensuite chaque lettre du message est remplacée par les coordonées de cette lettre dans le carré. Exemple : a = 11 avec le carré de Polybe\n")
 
             menuPrincipal = input("\n99) Menu Principal\n")
-            chiffrement = ""
+
+            while True:
+                
+                if menuPrincipal == "99":
+                    
+                    # Nettoyage de la fenêtre
+                    try:
+                        os.system("cls")
+                    
+                    except:
+                        os.system("clear")
+                    
+                    self.run()
+                
+                else:
+                    print("\n1) Le chiffrement ROT13 est une méthode de chiffrement dans laquelle chaque lettre à chiffrer est décalée de 13 lettres par rapport à son emplacement initial. Exemple : a = n en ROT13.")
+                    print("\n2) Le code de César est une méthode de chiffrement dans laquelle chaque lettre à chiifrer est décalée du nombre de lettres correspondant à la clé par rapport à son emplacement initial. Exemple : a = d pour une clé '3' en code de César.")
+                    print("\n3) Le code Vigenère est une méthode de chiffrement dans laquelle chaque lettre à chiffrer est remplacée par différentes lettres en fonction de la clé fournie. Exemple : a = c pour une clé 'cle' en code de Vigenère.")
+                    print("\n4) Le carré de Polybe est une méthode de chiffrement dans laquelle chaque lettre de l'alphabet est placée dans un tableau (un cube) de 5 x 5 = 25 cases (par convention, le i et le j sont placés dans la même case à cause du manque de place). Ensuite chaque lettre du message est remplacée par les coordonées de cette lettre dans le carré. Exemple : a = 11 avec le carré de Polybe\n")
+                    menuPrincipal = input("\n99) Menu Principal\n")
             
         else:
             print(colored("ERREUR : Option de chiffrement non-renseignée.", "red"))
