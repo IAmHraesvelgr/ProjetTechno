@@ -7,7 +7,9 @@ class Chiffrer():
     
     # Méthode __init__
     def __init__(self):
-        pass
+        
+        global chiffrerLesMessages
+        self.chiffrerLesMessages = True
 
     # Méthode pour lancer le programme
     def run(self):
@@ -33,7 +35,8 @@ class Chiffrer():
         """, "yellow"))
 
         global message
-        message = input("Bienvenue dans ce programme de chiffrement de messages.\n\nVeuillez entrez le message à chiffrer : ce message doit uniquement être composé de lettres et ne doit pas contenir d'espaces : \n\n").lower()
+        
+        message = input("Bienvenue dans ce programme de chiffrement et de déchiffrement de messages.\n\nVeuillez entrez le message à chiffrer : ce message doit uniquement être composé de lettres et ne doit pas contenir d'espaces : \n\n").lower()
 
         while message == any(char.isdigit() for char in message) or not message.isalpha():
 
@@ -121,7 +124,7 @@ class Chiffrer():
     def ChoisirChiffrement(self, messageAChiffrer):
         
         global chiffrement
-        chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n100) Informations\n\n")
+        chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n100) Informations\n101) Déchiffrer\n\n")
 
         if chiffrement == "1":
             
@@ -275,6 +278,12 @@ class Chiffrer():
                     
                     menuPrincipal = input("\n99) Menu Principal\n")
 
+            
+        if chiffrement == "101":
+            
+            chiffrement = ""
+            self.chiffrerLesMessages = False
+            
         else:
             print(colored("ERREUR : Option de chiffrement non-renseignée.", "red"))
             self.ChoisirChiffrement(message)

@@ -1,5 +1,6 @@
 # imports
-from chiffrer import Chiffrer
+from chiffrer import *
+from dechiffrer import *
 from console.utils import set_title
 import os         
 
@@ -10,7 +11,12 @@ set_title("Programme de chiffrement")
 
 # Création d'une intance de la classe Programme
 chiffrer = Chiffrer()
+dechiffrer = Dechiffrer()
 
 # Lancement du Programme
 while True:
-    chiffrer.run()
+    while chiffrer.chiffrerLesMessages == True:
+        chiffrer.run()
+
+    while chiffrer.chiffrerLesMessages == False:
+        dechiffrer.run()
