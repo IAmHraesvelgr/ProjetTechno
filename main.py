@@ -1,5 +1,5 @@
 # imports
-from chiffrer import *
+from chiffrer import Chiffrer
 from console.utils import set_title
 import os         
 
