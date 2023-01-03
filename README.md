@@ -11,6 +11,7 @@ Bibliothèques Utilisées :
 - Termcolor (https://pypi.org/project/termcolor/)
 - OS
 - Console (https://pypi.org/project/console/)
+- String
 
 Outils Utilisés :
 

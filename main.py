@@ -7,7 +7,6 @@ import os
 os.system("mode con: cols=150 lines=35")
 set_title("Programme de chiffrement")
 
-
 # Création d'une instance de la classe Chiffrer
 chiffrer = Chiffrer()
 
