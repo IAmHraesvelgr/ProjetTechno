@@ -1,6 +1,7 @@
 # imports
 from termcolor import colored
-import os          
+import os
+import string
 
 # Création de la classe servant de support au programme
 class Chiffrer():
@@ -56,15 +57,12 @@ class Chiffrer():
 
     # Méthode pour chiffrer en code de César
     def CodeCesar(self, messageAChiffrer, decalage):
-        
-        decalage = int(decalage)
-        messageChiffre = ""
-        
-        for i in range(len(messageAChiffrer)):
-            char = messageAChiffrer[i]
-            messageChiffre += chr((ord(char) + decalage - 96) % 26 + 96)
-        
-        return messageChiffre
+
+            decalage = int(decalage)
+            alphabet = string.ascii_lowercase
+            alphabet_decale = alphabet[decalage:] + alphabet[:decalage]
+            messageChiffre = str.maketrans(alphabet, alphabet_decale)
+            return messageAChiffrer.translate(messageChiffre)
 
     # Méthode pour chiffrer en code de Vigenère
     def CodeVigenère(self, messageAChiffrer, cle):
