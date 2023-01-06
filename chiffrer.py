@@ -10,14 +10,14 @@ class Chiffrer():
     def __init__(self):
         pass
 
-    # Méthode pour lancer le programme
     def run(self):
+        """Méthode pour lancer le programme."""
         self.main()
 
-    # Méthode permettant d'initialiser le programme
     def main(self):
+        """Méthode princiaple du programme"""
 
-        # Affichage de la clé en ASCII et du menu principal
+        # Affichage de la clé en Unicode et du menu principal
         print(colored("""                                                                  
                                                             ████░░░░░░████      
                                                         ██░░░░░░░░░░██████    
@@ -46,6 +46,7 @@ class Chiffrer():
 
     # Méthode pour chiffrer en ROT13
     def ROT13(self, messageAChiffrer):
+        """Méthode permettant de chiffrer le message fourni en ROT-13"""
         
         alphabet = "abcdefghijklmnopqrstuvwxyz"
         messageChiffre = ""
@@ -57,6 +58,7 @@ class Chiffrer():
 
     # Méthode pour chiffrer en code de César
     def CodeCesar(self, messageAChiffrer, decalage):
+            """Méthode permettant de chiffrer le message fourni en César grâce à la clé fournie"""
 
             decalage = int(decalage)
             alphabet = string.ascii_lowercase
@@ -66,6 +68,7 @@ class Chiffrer():
 
     # Méthode pour chiffrer en code de Vigenère
     def CodeVigenère(self, messageAChiffrer, cle):
+        """Méthode permettant de chiffrer le message fourni en Vigenère grâce à la clé fournie"""
 
         cle = [ord(letter) - 97 for letter in cle]
         
@@ -81,15 +84,15 @@ class Chiffrer():
         
         return messageChiffre
 
-    # Méthode pour chiffrer avec le carré de Polybe (le carré par défaut)
-    
-    # A B C D E
-    # F G H I,j K
-    # L M N O P
-    # Q R S T U
-    # V W X Y Z
 
     def CarreDePolybe(self, messageAChiffrer):
+        """Méthode pour chiffrer avec le carré de Polybe (le carré par défaut)
+        A B C D E
+        F G H I,j K
+        L M N O P
+        Q R S T U
+        V W X Y Z
+        """
         
         messageChiffre = ""
         
@@ -118,6 +121,7 @@ class Chiffrer():
 
     # Fonction de choix du chiffrement
     def ChoisirChiffrement(self, messageAChiffrer):
+        """Méthode pour choisir le moyen de chiffrement employé"""
         
         global chiffrement
         chiffrement = input("\nVeuillez choisir une option de chiffrement: \n\n1) ROT13\n2) Code de César\n3) Code de Vigenère\n4) Carré de Polybe\n\n99) Menu Principal\n100) Informations\n\n")
