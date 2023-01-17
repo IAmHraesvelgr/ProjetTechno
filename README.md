@@ -22,5 +22,5 @@ Outils Utilisés :
 
 # Pour lancer le programme :
 
-Il faut d'abord installer les bibliothèques requises en executant le fichier "install_packages.bat" (pip doit être installé pour effectuer l'installation des bibliothèques).
+Il faut d'abord installer les bibliothèques requises en executant le fichier "install_packages.bat" ou "install_packages.sh" (.bat pour windows et .sh pour mac et linux) (pip doit être installé pour effectuer l'installation des bibliothèques).
 Il faut ensuite lancer le fichier main.py avec python.
