@@ -19,3 +19,8 @@ Outils Utilisés :
 - GitHub (https://github.com)
 - GitHub Desktop (https://desktop.github.com)
 - Visual Studio Code (https://code.visualstudio.com)
+
+# Pour lancer le programme :
+
+Il faut d'abord installer les bibliothèques requises en executant le fichier "install_packages.bat".
+Il faut ensuite lancer le fichier main.py avec python.
