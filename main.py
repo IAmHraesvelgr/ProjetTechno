@@ -1,13 +1,17 @@
 # imports
 from chiffrer import Chiffrer
 from console.utils import set_title
-import os         
+from os import *
 
 # Mise en place de la console
-os.system("mode con: cols=150 lines=35")
+Chiffrer.clear()
+
+if name == "nt":
+    _ = system("mode con: cols=150 lines=35")
+else:
+    system("resize -s 35 150")
+
 set_title("Programme de chiffrement")
 
-# Création d'une instance de la classe Chiffrer
-chiffrer = Chiffrer()
-
-chiffrer.run()
+# Lancement de l'application
+Chiffrer.run()
