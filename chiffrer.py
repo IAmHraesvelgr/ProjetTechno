@@ -52,7 +52,7 @@ class Chiffrer():
     def ROT13(self, messageAChiffrer):
         """Méthode permettant de chiffrer le message fourni en ROT-13"""
 
-        alphabet = "abcdefghijklmnopqrstuvwxyz"
+        alphabet = string.ascii_lowercase
         messageChiffre = ""
 
         for char in messageAChiffrer:

@@ -1,1 +1,2 @@
-python -m pip install -r requierments.txt
+python -m pip install --upgrade pip
+python -m pip install -r requierements-windows.txt
