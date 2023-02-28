@@ -1,2 +1,3 @@
 termcolor
 console
+windows-curses

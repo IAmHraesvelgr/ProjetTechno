@@ -2,13 +2,14 @@
 from termcolor import colored
 from os import *
 import string
+import console.utils
 
 # Création de la classe servant de support au programme
 
 
 class Chiffrer():
 
-    # Constructeur
+    # Constructeur (vide)
     def __init__(self):
         pass
 
@@ -16,14 +17,6 @@ class Chiffrer():
     def run(self):
         """Méthode pour lancer le programme."""
         self.main()
-
-    @staticmethod
-    def clear(self):
-        # Nettoyage de la fenêtre
-        if name == "nt":
-            _ = system('cls')
-        else:
-            _ = system('clear')
 
     def main(self):
         """Méthode princiaple du programme"""
@@ -147,8 +140,8 @@ class Chiffrer():
                 if menuPrincipal == "99":
 
                     # Nettoyage de la fenêtre
-                    self.clear()
-                    self.run()
+                    console.utils.clear()
+                    self.run(self)
 
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est",
@@ -175,8 +168,8 @@ class Chiffrer():
                 if menuPrincipal == "99":
 
                     # Nettoyage de la fenêtre
-                    self.clear()
-                    self.run()
+                    console.utils.clear()
+                    self.run(self)
 
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est",
@@ -202,8 +195,8 @@ class Chiffrer():
                 if menuPrincipal == "99":
 
                     # Nettoyage de la fenêtre
-                    self.clear()
-                    self.run()
+                    console.utils.clear()
+                    self.run(self)
 
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est",
@@ -222,8 +215,8 @@ class Chiffrer():
                 if menuPrincipal == "99":
 
                     # Nettoyage de la fenêtre
-                    self.clear()
-                    self.run()
+                    console.utils.clear()
+                    self.run(self)
 
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est",
@@ -235,8 +228,8 @@ class Chiffrer():
             chiffrement = ""
 
             # Nettoyage de la fenêtre
-            self.clear()
-            self.run()
+            console.utils.clear()
+            self.run(self)
 
         if chiffrement == "100":
 
@@ -254,8 +247,8 @@ class Chiffrer():
                 if menuPrincipal == "99":
 
                     # Nettoyage de la fenêtre
-                    self.clear()
-                    self.run()
+                    console.utils.clear()
+                    self.run(self)
 
                 else:
                     print("\n1) Le chiffrement ROT13 est une méthode de chiffrement dans laquelle chaque lettre à chiffrer est décalée de 13 lettres par rapport à son emplacement initial. Exemple : a = n en ROT13.")

@@ -12,6 +12,7 @@ Bibliothèques Utilisées :
 - OS
 - Console (https://pypi.org/project/console/)
 - String
+- Curses
 
 Outils Utilisés :
 
