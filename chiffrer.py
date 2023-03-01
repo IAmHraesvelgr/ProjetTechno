@@ -1,5 +1,5 @@
 # imports
-from termcolor import colored
+from termcolor import *
 from os import *
 import string
 import console.utils
@@ -13,7 +13,6 @@ class Chiffrer():
     def __init__(self):
         pass
 
-    @staticmethod
     def run(self):
         """Méthode pour lancer le programme."""
         self.main()
