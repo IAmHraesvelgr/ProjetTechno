@@ -13,6 +13,7 @@ class Chiffrer():
     def __init__(self):
         pass
 
+    @staticmethod
     def run(self):
         """Méthode pour lancer le programme."""
         self.main()
