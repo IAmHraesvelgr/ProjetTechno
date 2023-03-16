@@ -2,7 +2,6 @@
 from chiffrer import Chiffrer
 import console.utils
 from os import *
-from curses import *
 
 # Mise en place de la console
 console.utils.clear()
