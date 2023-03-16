@@ -13,7 +13,6 @@ class Chiffrer():
     def __init__(self):
         pass
 
-    @staticmethod
     def run(self):
         """Méthode pour lancer le programme."""
         self.main()
@@ -141,7 +140,7 @@ class Chiffrer():
 
                     # Nettoyage de la fenêtre
                     console.utils.clear()
-                    self.run(self)
+                    self.run()
 
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est",
@@ -169,7 +168,7 @@ class Chiffrer():
 
                     # Nettoyage de la fenêtre
                     console.utils.clear()
-                    self.run(self)
+                    self.run()
 
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est",
@@ -196,7 +195,7 @@ class Chiffrer():
 
                     # Nettoyage de la fenêtre
                     console.utils.clear()
-                    self.run(self)
+                    self.run()
 
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est",
@@ -216,7 +215,7 @@ class Chiffrer():
 
                     # Nettoyage de la fenêtre
                     console.utils.clear()
-                    self.run(self)
+                    self.run()
 
                 else:
                     print("\n", colored("[*]", "blue"), "Le message chiffré est",
@@ -229,7 +228,7 @@ class Chiffrer():
 
             # Nettoyage de la fenêtre
             console.utils.clear()
-            self.run(self)
+            self.run()
 
         if chiffrement == "100":
 
@@ -248,7 +247,7 @@ class Chiffrer():
 
                     # Nettoyage de la fenêtre
                     console.utils.clear()
-                    self.run(self)
+                    self.run()
 
                 else:
                     print("\n1) Le chiffrement ROT13 est une méthode de chiffrement dans laquelle chaque lettre à chiffrer est décalée de 13 lettres par rapport à son emplacement initial. Exemple : a = n en ROT13.")
